@@ -16,21 +16,17 @@ public class Main {
         System.out.println("Digite a 4° nota");
         float nota4 = scanner.nextFloat();
 
-        float media = ((nota1 + nota2 + nota3 + nota4)/4);
+        float media = ((nota1 + nota2 + nota3 + nota4) / 4);
 
-        if (media >= 9){
+        if (media >= 9) {
             System.out.println("Aprovado. Sua menção é A, com a nota " + media);
-        }
-        else if (media >= 7 && media < 9) {
+        } else if (media >= 7 && media < 9) {
             System.out.println("Aprovado. Sua menção é B, com a nota " + media);
-        }
-        else if (media >= 5 && media < 7) {
+        } else if (media >= 5 && media < 7) {
             System.out.println("Aprovado. Sua menção é C, com a nota " + media);
-        }
-        else if (media >= 2.5 && media < 5) {
+        } else if (media >= 2.5 && media < 5) {
             System.out.println("Reprovado. Sua menção é D, com a nota " + media);
-        }
-        else if (media > 2.5) {
+        } else if (media < 2.5) {
             System.out.println("Reprovado. Sua menção é E, com a nota " + media);
         }
 

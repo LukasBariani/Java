@@ -35,5 +35,8 @@ public class Main {
             System.out.println("Dezembro");
 
         }
+        else {
+            System.out.println("Numero inválido");
+        }
     }
 }

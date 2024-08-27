@@ -8,13 +8,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Qual sua altura? (em metros)");
-         double alt = scanner.nextDouble();
+         float alt = scanner.nextFloat();
 
         System.out.println("Qual seu peso? (em kg)");
-         double kg = scanner.nextDouble();
+         float kg = scanner.nextFloat();
 
         //calcula o indice de massa corporal
-        double imc = (kg / (alt * alt) );
+        float imc = (kg / (alt * alt) );
 
         if(imc < 18){
             System.out.println("Seu IMC é de " + imc + " .Você está em estado de fraqueza ");
