@@ -5,34 +5,35 @@ public class Caneta {
     private String cor;
 
     public Caneta(String modelo, String cor, float ponta) {
-        this.modelo = modelo;
-        this.cor = cor;
-        this.ponta = ponta;
-        tampar();
+        this.setModelo(modelo);
+        this.setCor(cor);
+        this.setPonta(ponta);
+        this.tampar();
     }
 
     public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setModelo(String m) {
+        this.modelo = m;
     }
 
     public float getPonta() {
         return ponta;
     }
 
-    public void setPonta(float ponta) {
-        this.ponta = ponta;
+    public void setPonta(float p) {
+        this.ponta = p;
     }
 
+    // o is é usado so para bollean
     public boolean isTampada() {
         return tampada;
     }
 
-    public void setTampada(boolean tampada) {
-        this.tampada = tampada;
+    public void setTampada(boolean t) {
+        this.tampada = t;
     }
 
     public String getCor() {
@@ -51,7 +52,7 @@ public class Caneta {
         System.out.println("Sobre a caneta");
         System.out.println("Modelo: " + this.getModelo());
         System.out.println("Ponta: " + this.getPonta());
-        System.out.println("Cor " + this.getCor());
+        System.out.println("Cor: " + this.getCor());
         System.out.println("Tampada: " + this.isTampada());
         System.out.println("---------------------------");
     }
