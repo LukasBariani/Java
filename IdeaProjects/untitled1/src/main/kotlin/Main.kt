@@ -21,18 +21,15 @@ fun main(args: Array<String>) {
             println(array[i])
             Thread.sleep(500)
         }
-
         //caso 5
         val array2 = arrayOf(1, 2, 3, 4, 5, 6)
         println(array2[5])
-
         //caso 6
         var cont = 0
         while (cont < 5){
             println(cont)
             cont++
         }
-
     }else if (resposta == "N" || resposta == "n"){
         val x = 1
         //caso 2
