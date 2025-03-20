@@ -23,6 +23,7 @@ public class ContaBanco {
             System.out.println("Conta em débito");
         }else{
             setStatus(false);
+            System.out.println("Conta fechada com sucesso!");
         }
         return false;
     }
@@ -38,8 +39,9 @@ public class ContaBanco {
         if (isStatus()){
             if (v <= getSaldo()){
                 setSaldo(getSaldo() - v);
+                System.out.println("Saque bem sucedido na conta do(a) " + this.getDono());
             }else{
-                System.out.println("Saldo Insuficiente");
+                System.out.println("Saldo Insuficiente na conta do(a): " + this.getDono());
             }
         }else {
             System.out.println("Conta Inválida");
@@ -101,5 +103,15 @@ public class ContaBanco {
     }
     public boolean isStatus() {
         return status;
+    }
+
+    public void status(){
+        System.out.println("--------------------------------");
+        System.out.println("Conta: " + this.getNumConta());
+        System.out.println("O tipo da conta é " + this.getTipo());
+        System.out.println("O saldo do(a) " + this.getDono() +" é R$"+ this.getSaldo());
+        System.out.println("O dono da conta é o(a) "+ this.getDono());
+        System.out.println("Status: "+ this.isStatus());
+        System.out.println("--------------------------------");
     }
 }
