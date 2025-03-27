@@ -11,12 +11,12 @@ public class Luta {
             setAprovada(true);
             setDesafiante(l1);
             setDesafiado(l2);
-            System.out.println("Luta marcada com sucesso");
+            System.out.println("Luta marcada com sucesso entre o " + desafiado.getNome() + " e " + desafiante.getNome());
         }else {
             setAprovada(false);
             setDesafiado(null);
             setDesafiante(null);
-            System.out.println("Luta nao marcada");
+            System.out.println("Luta não marcada");
         }
     }
 
@@ -47,18 +47,23 @@ public class Luta {
             }
 
             if (rg1  > rg2){
+                System.out.println("---resultado---");
                 System.out.println("O lutador " + desafiante.getNome() + " GANHOU A LUTA!" );
                 desafiante.ganharLuta();
-                System.out.println("---Luta---");
+                desafiado.perderLuta();
+                System.out.println("---resultado---");
             } else if (rg2 > rg1 ) {
+                System.out.println("---resultado---");
                 System.out.println("O lutador " + desafiado.getNome() + " GANHOU A LUTA!" );
                 desafiado.ganharLuta();
-                System.out.println("---Luta---");
+                desafiante.perderLuta();
+                System.out.println("---resultado---");
             }else {
+                System.out.println("---resultado---");
                 System.out.println(" A luta deu Empate");
                 desafiado.empatarLuta();
                 desafiante.empatarLuta();
-                System.out.println("---Luta---");
+                System.out.println("---resultado---");
             }
 
         }else {
