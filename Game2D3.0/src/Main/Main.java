@@ -10,7 +10,7 @@ public class Main{
         window.setResizable(false);
         window.addKeyListener(new KeyboardHandler());
 
-        GamePanel gamePanel = new GamePanel();// class JPanel
+        GamePanel gamePanel = new GamePanel();// class JPanelwd
         window.add(gamePanel);
         window.pack();
 

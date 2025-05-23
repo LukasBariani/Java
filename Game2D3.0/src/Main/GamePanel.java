@@ -9,7 +9,7 @@ public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16; //the blocks of the game are 16x16
     final int scale = 3;
 
-    final int tileSize = originalTileSize * scale; // 48x48
+    final int tileSize = originalTileSize * scale; // 48x48px
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
     final int screenWidth = tileSize * maxScreenCol; // 768px
@@ -18,8 +18,8 @@ public class GamePanel extends JPanel implements Runnable {
     int x = 20;
     int y = 20;
 
-    int x2 = 20;
-    int y2 = 21;
+    int x2 = 80;
+    int y2 = 20;
     //velocity
     int hspd = 0;
     int vspd = 0;
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable {
         while(gameThread != null){
 
 
-            //ggSystem.out.println("The game loop is running");
+            //System.out.println("The game loop is running");
 
             //UPDATE the information
             update();
@@ -84,6 +84,34 @@ public class GamePanel extends JPanel implements Runnable {
         }
         if (KeyboardHandler.isKeyPressed(KeyEvent.VK_UP)) {
             vspd=-10;
+        }
+
+        //verifica se tem sobreposiçao
+        if (x + hspd < x2 + tileSize &&
+            x + tileSize + hspd > x2 &&
+            y + vspd < y2 + tileSize &&
+            y + tileSize + vspd > y2) {
+
+            System.out.println("COLIDIU");
+
+            // Bloquear movimento na direção que causaria colisão
+            if (x + tileSize <= x2) {
+                hspd = 0;
+                System.out.println("Bateu na esquerda");
+            }
+            if (x >= x2 + tileSize) {
+
+                hspd = 0;
+                System.out.println("Bateu na direita");
+            }
+            if (y + tileSize <= y2) {
+                vspd = 0;
+                System.out.println("Bateu em cima");
+            }
+            if (y >= y2 + tileSize) {
+                vspd = 0;
+                System.out.println("Bateu embaixo");
+            }
         }
         //left
         if (x+hspd <= 0){
@@ -125,8 +153,7 @@ public class GamePanel extends JPanel implements Runnable {
 //------------------------------------bloco dois
 
         g.setColor(Color.blue);
-        g2.fillRect(x2, y2, tileSize,tileSize);
-        g2.dispose();
+        g.fillRect(x2, y2, tileSize,tileSize);
         hspd2 = 0;
         vspd2 = 0;
         if (KeyboardHandler.isKeyPressed(KeyEvent.VK_D )){
@@ -140,6 +167,36 @@ public class GamePanel extends JPanel implements Runnable {
         }
         if (KeyboardHandler.isKeyPressed(KeyEvent.VK_W)) {
             vspd2-=10;
+        }
+        //verifica se tem sobreposiçao
+        if (x2 + hspd2 < x + tileSize &&
+                x2 + tileSize + hspd2 > x &&
+                y2 + vspd2 < y + tileSize &&
+                y2 + tileSize + vspd2 > y) {
+
+            System.out.println("COLIDIU");
+
+            // Bloquear movimento na direção que causaria colisão
+            if (x2 + tileSize <= x) {
+                while (x2 + tileSize + 1 > x){
+                    x2++;
+                }
+                hspd2 = 0;
+                System.out.println("Bateu na esquerda");
+            }
+            if (x2 >= x + tileSize) {
+
+                hspd2 = 0;
+                System.out.println("Bateu na direita");
+            }
+            if (y2 + tileSize <= y) {
+                vspd2 = 0;
+                System.out.println("Bateu em cima");
+            }
+            if (y2 >= y + tileSize) {
+                vspd2 = 0;
+                System.out.println("Bateu embaixo");
+            }
         }
 
         //left
